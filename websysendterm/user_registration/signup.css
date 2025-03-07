@@ -1,0 +1,5 @@
+form {
+    border: 2px solid #ccc; /* Add a 2px solid border with a color of your choice */
+    padding: 20px; /* Add some padding to the form for spacing */
+    border-radius: 10px; /* Add rounded corners to the border */
+}
