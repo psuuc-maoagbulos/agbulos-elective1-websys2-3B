@@ -12,8 +12,8 @@ class ProductController extends Controller
 {
     public function index(Request $request)
     {
-        $view = $request->query('view', 'products'); // Default to 'products'
-        $search = $request->input('search'); // Define $search for all views
+        $view = $request->query('view', 'products'); 
+        $search = $request->input('search'); 
 
         if ($view === 'suppliers') {
             $suppliers = Supplier::paginate(5);
@@ -47,7 +47,7 @@ class ProductController extends Controller
             'stock_quantity' => 'required|integer',
             'category_id' => 'required|exists:categories,id',
             'supplier_id' => 'required|exists:suppliers,id',
-            'photo' => 'nullable|image|max:5000', // Max 2MB
+            'photo' => 'nullable|image|max:5000', 
         ]);
 
         $data = $request->all();
@@ -81,13 +81,13 @@ class ProductController extends Controller
             'stock_quantity' => 'required|integer',
             'category_id' => 'required|exists:categories,id',
             'supplier_id' => 'required|exists:suppliers,id',
-            'photo' => 'nullable|image|max:5000', // Max 2MB
+            'photo' => 'nullable|image|max:5000', 
         ]);
 
         $data = $request->all();
 
         if ($request->hasFile('photo')) {
-            // Delete old photo if it existss
+            
             if ($product->photo) {
                 Storage::disk('public')->delete($product->photo);
             }
